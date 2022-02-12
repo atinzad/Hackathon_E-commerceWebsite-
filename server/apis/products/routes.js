@@ -25,7 +25,7 @@ router.param("productId", async (req, res, next, productId) => {
 
 //router.get("/", controllerHelloWorld);
 
-router.post("/products", upload.single("image"), controllerAddProduct);
+router.post("/", upload.single("image"), controllerAddProduct);
 
 router.get("/", controllerGetProducts);
 

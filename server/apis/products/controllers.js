@@ -1,4 +1,3 @@
-const Product = require("../../models/Product");
 const Products = require("../../models/Product");
 
 exports.fetchProduct = async (productId, next) => {
@@ -18,7 +17,6 @@ exports.fetchProduct = async (productId, next) => {
 
 exports.controllerAddProduct = async (req, res, next) => {
   try {
-    req.body.shopId = req.params.shopId;
     if (req.file) {
       req.body.image = `http://${req.get("host")}/media/${req.file.filename}`;
     }
@@ -46,7 +44,7 @@ exports.controllerGetProducts = async (req, res, next) => {
 exports.controllerDeleteProduct = async (req, res, next) => {
   try {
     const productId = req.product._id;
-    await Product.findByIdAndDelete(productId);
+    await Products.findByIdAndDelete(productId);
     res.status(204).end();
   } catch (error) {
     next(error);
