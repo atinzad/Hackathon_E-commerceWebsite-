@@ -8,10 +8,11 @@ function ProductModal({ oldProduct }) {
     oldProduct ?? {
       name: "",
       image: "",
-      price: 5,
-      description: "",
-      color: "black",
-      quantity: 5,
+      price: 0,
+      color: "",
+      size: 0,
+      category: "",
+      availbility: false,
     }
   );
 
@@ -33,9 +34,9 @@ function ProductModal({ oldProduct }) {
 
   return (
     <>
-      <Button variant="outline-dark" onClick={handleShow}>
+      {/* <Button variant="outline-dark" onClick={handleShow}>
         {oldProduct ? "Edit" : "New"}
-      </Button>
+      </Button> */}
       <Modal show={show} onHide={handleClose}>
         <Modal.Body>
           <form onSubmit={handleSubmit}>
@@ -65,17 +66,17 @@ function ProductModal({ oldProduct }) {
                 value={product.price}
                 type="number"
                 onChange={handleChange}
-                placeholder="لا تصير طماع"
+                placeholder="Price"
               />
             </InputGroup>
             <InputGroup className="mb-3">
-              <InputGroup.Text>Description</InputGroup.Text>
+              <InputGroup.Text>Size</InputGroup.Text>
               <FormControl
-                name="description"
-                value={product.description}
-                type="text"
+                name="size"
+                value={product.size}
+                type="number"
                 onChange={handleChange}
-                placeholder="Description"
+                placeholder="size"
               />
             </InputGroup>
             <InputGroup className="mb-3">
@@ -89,13 +90,13 @@ function ProductModal({ oldProduct }) {
               />
             </InputGroup>
             <InputGroup className="mb-3">
-              <InputGroup.Text>Quantity</InputGroup.Text>
+              <InputGroup.Text>Category</InputGroup.Text>
               <FormControl
-                name="quantity"
-                value={product.quantity}
-                type="number"
+                name="category"
+                value={product.category}
+                type="category"
                 onChange={handleChange}
-                placeholder="Quantity"
+                placeholder="category"
               />
             </InputGroup>
             <Button variant="outline-dark" type="submit">

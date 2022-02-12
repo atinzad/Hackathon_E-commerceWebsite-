@@ -1,6 +1,6 @@
-import { Button, Card, Col } from 'react-bootstrap';
-import productStore from '../stores/productStore';
-import ProductModal from './ProductModal';
+import { Button, Card, Col } from "react-bootstrap";
+import productStore from "../stores/productStore";
+import ProductModal from "./ProductModal";
 
 function ProductCard({ product }) {
   const handleDelete = () => productStore.deleteProduct(product._id);
@@ -13,9 +13,9 @@ function ProductCard({ product }) {
           <Card.Title>{product.name}</Card.Title>
           <Card.Text>{product.price} KD</Card.Text>
           <Card.Text>{product.description}</Card.Text>
-          <Button className="m-1" onClick={handleDelete} variant="danger">
+          {/* <Button className="m-1" onClick={handleDelete} variant="danger">
             DELETE
-          </Button>
+          </Button> */}
           <ProductModal oldProduct={product} />
         </Card.Body>
       </Card>
